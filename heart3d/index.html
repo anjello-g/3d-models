@@ -18,7 +18,7 @@
         embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-        <a-entity id="ar-marker" gltf-model="scene.gltf" scale="1 1 1" animation-mixer/>
+        <a-entity id="ar-marker" gltf-model="scene.gltf" rotation="0 180 0" scale="1 1 1" gps-entity-place="latitude: 0; longitude: 0; elevation: 0;" animation-mixer/>
 
         <a-camera gps-camera rotation-reader></a-camera>
 
@@ -26,8 +26,8 @@
             // Get user's current location using Geolocation API
             navigator.geolocation.getCurrentPosition(
                 (position) => {
-                    const latitude = position.coords.latitude + 20; // Adjust as needed
-                    const longitude = position.coords.longitude; // Adjust as needed
+                    const latitude = position.coords.latitude; 
+                    const longitude = position.coords.longitude;
                     const altitude = position.coords.altitude || 0;
 
                     // Update AR marker position based on user's location
